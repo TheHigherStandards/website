@@ -5,7 +5,22 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section with Background Image */}
-      <div className="relative h-[80vh] bg-gradient-to-r from-indigo-900 to-purple-900">
+      <div className="relative h-[80vh] bg-black overflow-hidden">
+        {/* Animated Music Notes */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Only single music notes, floating */}
+          {/* Eighth Note */}
+          <svg className="absolute left-1/2 bottom-20 w-6 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.7, animationDelay: '1.5s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+          {/* Quarter Note */}
+          <svg className="absolute left-1/4 bottom-2 w-7 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.6, animationDelay: '2.2s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v12a4 4 0 1 0 2-3.465V3h-2z"/></svg>
+          {/* More single notes for variety */}
+          <svg className="absolute left-1/3 bottom-24 w-5 h-8 text-white opacity-60 animate-music-note" style={{ animationDelay: '2.8s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+          <svg className="absolute right-1/4 bottom-16 w-8 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.8, animationDelay: '3.2s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v12a4 4 0 1 0 2-3.465V3h-2z"/></svg>
+          <svg className="absolute left-20 bottom-32 w-6 h-8 text-white opacity-70 animate-music-note" style={{ animationDelay: '1.2s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+          <svg className="absolute right-10 bottom-24 w-7 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.7, animationDelay: '2.5s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v12a4 4 0 1 0 2-3.465V3h-2z"/></svg>
+          <svg className="absolute left-1/5 bottom-14 w-6 h-8 text-white opacity-60 animate-music-note" style={{ animationDelay: '3.8s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+          <svg className="absolute right-1/3 bottom-4 w-5 h-8 animate-music-note" style={{ color: '#035b51', opacity: 0.6, animationDelay: '4.2s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v12a4 4 0 1 0 2-3.465V3h-2z"/></svg>
+        </div>
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-20 h-full flex items-center justify-center text-center px-4">
           <div className="max-w-3xl">
