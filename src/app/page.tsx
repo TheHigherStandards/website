@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section with Background Image */}
-      <div className="relative h-[110vh] md:h-[80vh] bg-black overflow-hidden pt-16 md:pt-0">
+      <div className="relative h-[110vh] md:h-[80vh] bg-black overflow-hidden pt-8 md:pt-0">
         {/* Animated Music Notes */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Only single music notes, floating */}
