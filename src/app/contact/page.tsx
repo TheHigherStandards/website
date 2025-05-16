@@ -111,7 +111,7 @@ export default function ContactPage() {
             <p className="text-gray-800">
               For booking inquiries and general questions, please use the form above or email us directly at:
               <br />
-              <a href="mailto:thehigherstandardsband@gmail.com" className="text-indigo-600 hover:text-indigo-500 font-medium">
+              <a href="mailto:thehigherstandardsband@gmail.com" className="text-blue-800 hover:text-blue-900 font-medium underline hover:underline">
                 thehigherstandardsband@gmail.com
               </a>
             </p>

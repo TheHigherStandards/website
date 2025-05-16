@@ -54,21 +54,25 @@ const Navigation = () => {
               </svg>
             </button>
           </div>
+          {/* Mobile social links, far right */}
+          <div className="sm:hidden ml-auto flex items-center">
+            <SocialLinks links={socialLinks} />
+          </div>
           {/* Desktop nav links */}
           <div className="hidden sm:flex sm:items-center sm:space-x-8">
-            <Link href="/" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600">
+            <Link href="/" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-800 underline hover:underline">
               Home
             </Link>
-            <Link href="/band" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600">
+            <Link href="/band" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-800 underline hover:underline">
               Band
             </Link>
-            <Link href="/shows" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600">
+            <Link href="/shows" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-800 underline hover:underline">
               Shows
             </Link>
-            <Link href="/merch" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600">
+            <Link href="/merch" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-800 underline hover:underline">
               Merch
             </Link>
-            <Link href="/contact" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600">
+            <Link href="/contact" className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-800 underline hover:underline">
               Contact
             </Link>
           </div>
@@ -81,24 +85,21 @@ const Navigation = () => {
         {menuOpen && (
           <div className="sm:hidden mt-2 bg-white rounded-lg shadow-lg p-4">
             <div className="flex flex-col space-y-4">
-              <Link href="/" className="text-gray-900 hover:text-gray-600" onClick={() => setMenuOpen(false)}>
+              <Link href="/" className="text-gray-900 hover:text-gray-800 underline hover:underline" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
-              <Link href="/band" className="text-gray-900 hover:text-gray-600" onClick={() => setMenuOpen(false)}>
+              <Link href="/band" className="text-gray-900 hover:text-gray-800 underline hover:underline" onClick={() => setMenuOpen(false)}>
                 Band
               </Link>
-              <Link href="/shows" className="text-gray-900 hover:text-gray-600" onClick={() => setMenuOpen(false)}>
+              <Link href="/shows" className="text-gray-900 hover:text-gray-800 underline hover:underline" onClick={() => setMenuOpen(false)}>
                 Shows
               </Link>
-              <Link href="/merch" className="text-gray-900 hover:text-gray-600" onClick={() => setMenuOpen(false)}>
+              <Link href="/merch" className="text-gray-900 hover:text-gray-800 underline hover:underline" onClick={() => setMenuOpen(false)}>
                 Merch
               </Link>
-              <Link href="/contact" className="text-gray-900 hover:text-gray-600" onClick={() => setMenuOpen(false)}>
+              <Link href="/contact" className="text-gray-900 hover:text-gray-800 underline hover:underline" onClick={() => setMenuOpen(false)}>
                 Contact
               </Link>
-              <div className="flex space-x-4 mt-2">
-                <SocialLinks links={socialLinks} />
-              </div>
             </div>
           </div>
         )}
