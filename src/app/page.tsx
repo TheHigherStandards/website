@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section with Background Image */}
       <div className="relative h-[110vh] md:h-[80vh] bg-black overflow-hidden pt-8 md:pt-0">
         {/* Animated Music Notes */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 z-30 pointer-events-none">
           {/* Only single music notes, floating */}
           {/* Eighth Note */}
           <svg className="absolute left-1/2 bottom-20 w-6 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.7, animationDelay: '1.5s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
@@ -51,52 +51,7 @@ export default function Home() {
       {/* Featured Content Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Featured Content</h2>
-          
-          {/* Featured Merchandise */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900">Featured Merchandise</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="aspect-w-1 aspect-h-1 w-full">
-                  <div className="w-full h-48 bg-gray-200 relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
-                      Band T-Shirt
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards T-Shirt</h4>
-                  <p className="text-gray-800 mb-2">Classic black t-shirt with band logo</p>
-                  <p className="text-lg font-bold text-black">$25</p>
-                </div>
-              </div>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="aspect-w-1 aspect-h-1 w-full">
-                  <div className="w-full h-48 bg-gray-200 relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
-                      Band Hoodie
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900">Band Hoodie</h4>
-                  <p className="text-gray-800 mb-2">Comfortable hoodie with embroidered band logo</p>
-                  <p className="text-lg font-bold text-black">$45</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-center mt-8">
-              <a
-                href="/merch"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
-              >
-                View All Merchandise
-              </a>
-            </div>
-          </div>
-
-          {/* Upcoming Shows Preview */}
+          {/* Upcoming Shows - moved up */}
           <div>
             <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900">Upcoming Shows</h3>
             <div className="bg-white rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full">
@@ -126,6 +81,75 @@ export default function Home() {
                   Subscribe to Calendar
                 </a>
               </div>
+            </div>
+            {/* Facebook Widget Below Upcoming Shows */}
+            <div className="flex flex-col items-center mt-8">
+              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-900">Follow the Band</h3>
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthehigherstandards&tabs=timeline&width=340&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="340"
+                height="650"
+                style={{ border: 'none', overflow: 'hidden' }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                title="The Higher Standards Facebook Page"
+              ></iframe>
+            </div>
+          </div>
+          {/* Featured Merchandise - moved down */}
+          <div className="mb-16 mt-16">
+            <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900">Featured Merchandise</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="aspect-w-1 aspect-h-1 w-full">
+                  <div className="w-full h-48 bg-gray-200 relative">
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
+                      Band T-Shirt
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards T-Shirt</h4>
+                  <p className="text-gray-800 mb-2">Classic black t-shirt with band logo</p>
+                  <p className="text-lg font-bold text-black">$25</p>
+                  <a
+                    href="/contact?subject=Merchandise Purchase Request - The Higher Standards T-Shirt"
+                    className="block w-full text-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal mt-4"
+                  >
+                    Request to Purchase
+                  </a>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="aspect-w-1 aspect-h-1 w-full">
+                  <div className="w-full h-48 bg-gray-200 relative">
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
+                      Band Hoodie
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900">Band Hoodie</h4>
+                  <p className="text-gray-800 mb-2">Comfortable hoodie with embroidered band logo</p>
+                  <p className="text-lg font-bold text-black">$45</p>
+                  <a
+                    href="/contact?subject=Merchandise Purchase Request - Band Hoodie"
+                    className="block w-full text-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal mt-4"
+                  >
+                    Request to Purchase
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <a
+                href="/merch"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+              >
+                View All Merchandise
+              </a>
             </div>
           </div>
         </div>
