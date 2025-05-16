@@ -28,6 +28,8 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
         <link rel="icon" href="/images/favicon1.ico" type="image/x-icon" />
+        {/* Preload Inter font for faster LCP */}
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTcviYw.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <div className="min-h-screen flex flex-col">

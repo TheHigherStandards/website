@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 // import Navigation from '@/components/Navigation'
 
 export default function Home() {
@@ -24,16 +25,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-20 h-full flex items-center justify-center text-center px-4">
           <div className="max-w-3xl w-full flex flex-col items-center">
-            <img
+            <Image
               src="/images/logo.jpg"
               alt="The Higher Standards Logo"
+              width={144}
+              height={120}
+              priority
               className="mx-auto mb-6 w-32 md:w-36 h-auto border-4 border-white rounded-2xl shadow-lg"
               style={{ maxHeight: '120px' }}
             />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               The Higher Standards
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 mb-8">
+            {/* Use system font for fastest LCP */}
+            <p className="text-xl md:text-2xl text-gray-100 mb-8" style={{ fontFamily: 'system-ui, sans-serif' }}>
               Elevating your events with exceptional live music
             </p>
             <div className="flex justify-center w-full">
