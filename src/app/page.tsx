@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section with Background Image */}
       <div className="relative h-[110vh] md:h-[80vh] bg-black overflow-hidden pt-8 md:pt-0">
         {/* Animated Music Notes */}
-        <div className="absolute inset-0 z-30 pointer-events-none">
+        <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Only single music notes, floating */}
           {/* Eighth Note */}
           <svg className="absolute left-1/2 bottom-20 w-6 h-10 animate-music-note" style={{ color: '#035b51', opacity: 0.7, animationDelay: '1.5s' }} fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
@@ -23,14 +23,20 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-20 h-full flex items-center justify-center text-center px-4">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl w-full flex flex-col items-center">
+            <img
+              src="/images/logo.jpg"
+              alt="The Higher Standards Logo"
+              className="mx-auto mb-6 w-32 md:w-36 h-auto border-4 border-white rounded-2xl shadow-lg"
+              style={{ maxHeight: '120px' }}
+            />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               The Higher Standards
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 mb-8">
               Elevating your events with exceptional live music
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full">
               <iframe
                 style={{ borderRadius: '12px' }}
                 src="https://open.spotify.com/embed/artist/2n31PctOZt8HEp8Qq2vvUY?utm_source=generator"
