@@ -1,14 +1,43 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 // import Navigation from '@/components/Navigation'
 
 export default function ContactPage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
+        router.push('/contact/thank-you');
+      } else {
+        setError('There was a problem sending your message. Please try again.');
+      }
+    } catch {
+      setError('There was a problem sending your message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">Contact Us</h1>
         
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <form action="/api/contact" method="POST" className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-900">
                 Name
@@ -61,12 +90,15 @@ export default function ContactPage() {
               ></textarea>
             </div>
 
+            {error && <div className="text-red-600 text-sm">{error}</div>}
+
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal disabled:opacity-60"
+                disabled={loading}
               >
-                Send Message
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </div>
           </form>
