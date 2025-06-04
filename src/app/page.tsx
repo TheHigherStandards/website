@@ -31,14 +31,14 @@ export default function Home() {
               width={144}
               height={120}
               priority
-              className="mx-auto mb-6 w-32 md:w-36 h-auto border-4 border-white rounded-2xl shadow-lg"
+              className="mx-auto mb-6 w-32 md:w-36 h-auto border-4 border-white rounded-2xl shadow-lg mt-4 md:mt-12"
               style={{ maxHeight: '120px' }}
             />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               The Higher Standards
             </h1>
             {/* Use system font for fastest LCP */}
-            <p className="text-xl md:text-2xl text-gray-100 mb-8" style={{ fontFamily: 'system-ui, sans-serif' }}>
+            <p className="text-xl md:text-2xl text-white mb-8" style={{ fontFamily: 'system-ui, sans-serif' }}>
               Elevating your events with exceptional live music
             </p>
             <div className="flex justify-center w-full">
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Upcoming Shows - moved up */}
           <div>
-            <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900">Upcoming Shows</h3>
+            <h2 className="text-2xl font-semibold text-center mb-8 text-gray-900">Upcoming Shows</h2>
             <div className="bg-white rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full">
               <iframe
                 src="https://calendar.google.com/calendar/embed?height=700&wkst=1&ctz=America%2FNew_York&showPrint=0&showNav=0&showTz=0&mode=AGENDA&showCalendars=0&showTabs=0&showDate=0&src=ZHV1MXM4ZWE5Y25rb281cm9jMmVlcW80b2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688"
@@ -79,7 +79,7 @@ export default function Home() {
               <div className="text-center mt-4 flex flex-col sm:flex-row justify-center gap-4">
                 <a
                   href="/shows"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black underline"
                 >
                   View All Shows
                 </a>
@@ -87,7 +87,7 @@ export default function Home() {
                   href="https://calendar.google.com/calendar/ical/ZHV1MXM4ZWE5Y25rb281cm9jMmVlcW80b2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ/public/basic.ics"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal underline"
                 >
                   Subscribe to Calendar
                 </a>
@@ -95,7 +95,7 @@ export default function Home() {
             </div>
             {/* Facebook Widget Below Upcoming Shows */}
             <div className="flex flex-col items-center mt-8">
-              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-900">Follow the Band</h3>
+              <h2 className="text-2xl font-semibold text-center mb-4 text-gray-900">Follow the Band</h2>
               <iframe
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthehigherstandards&tabs=timeline&width=340&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                 width="340"
@@ -111,19 +111,16 @@ export default function Home() {
           </div>
           {/* Featured Merchandise - moved down */}
           <div className="mb-16 mt-16">
-            <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900">Featured Merchandise</h3>
+            <h2 className="text-2xl font-semibold text-center mb-8 text-gray-900">Featured Merchandise</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              {/* T-Shirt */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="aspect-w-1 aspect-h-1 w-full">
-                  <div className="w-full h-48 bg-gray-200 relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
-                      Band T-Shirt
-                    </div>
-                  </div>
+                <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <img src="/images/merch/Tshirt.png" alt="The Higher Standards T-Shirt" className="h-full object-contain" />
                 </div>
                 <div className="p-4">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards T-Shirt</h4>
-                  <p className="text-gray-800 mb-2">Classic black t-shirt with band logo</p>
+                  <p className="text-gray-800 mb-2">Classic t-shirt with band logo</p>
                   <p className="text-lg font-bold text-black">$25</p>
                   <a
                     href="/contact?subject=Merchandise Purchase Request - The Higher Standards T-Shirt"
@@ -133,20 +130,34 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+              {/* Tank Top */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="aspect-w-1 aspect-h-1 w-full">
-                  <div className="w-full h-48 bg-gray-200 relative">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-900">
-                      Band Hoodie
-                    </div>
-                  </div>
+                <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <img src="/images/merch/Tank.png" alt="The Higher Standards Tank Top" className="h-full object-contain" />
                 </div>
                 <div className="p-4">
-                  <h4 className="text-lg font-semibold mb-2 text-gray-900">Band Hoodie</h4>
-                  <p className="text-gray-800 mb-2">Comfortable hoodie with embroidered band logo</p>
-                  <p className="text-lg font-bold text-black">$45</p>
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards Tank Top</h4>
+                  <p className="text-gray-800 mb-2">Comfortable tank top with band logo</p>
+                  <p className="text-lg font-bold text-black">$20</p>
                   <a
-                    href="/contact?subject=Merchandise Purchase Request - Band Hoodie"
+                    href="/contact?subject=Merchandise Purchase Request - The Higher Standards Tank Top"
+                    className="block w-full text-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal mt-4"
+                  >
+                    Request to Purchase
+                  </a>
+                </div>
+              </div>
+              {/* Hat */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
+                  <img src="/images/merch/Hat.png" alt="The Higher Standards Hat" className="h-full object-contain" />
+                </div>
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards Hat</h4>
+                  <p className="text-gray-800 mb-2">Adjustable hat with band logo</p>
+                  <p className="text-lg font-bold text-black">$20</p>
+                  <a
+                    href="/contact?subject=Merchandise Purchase Request - The Higher Standards Hat"
                     className="block w-full text-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal mt-4"
                   >
                     Request to Purchase
@@ -157,7 +168,7 @@ export default function Home() {
             <div className="text-center mt-8">
               <a
                 href="/merch"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal underline"
               >
                 View All Merchandise
               </a>
