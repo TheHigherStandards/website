@@ -3,16 +3,14 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 
 const bandMembers = {
-  'john-doe': {
-    name: 'John Doe',
+  'curtis-allen-woodard': {
+    name: 'Curtis Allen Woodard',
     role: 'Lead Vocals & Guitar',
-    image: '/images/band/john-doe.jpg',
-    bio: 'Lead vocalist and guitarist with over 15 years of experience.',
-    fullBio: 'John has been performing professionally for over 15 years. His powerful vocals and masterful guitar playing have made him a standout performer in the local music scene.',
+    image: '/images/band/Curtis(1).jpg',
+    bio: 'Frontman, guitarist, and the heart of the band. Known for his soulful voice and energetic stage presence.',
+    fullBio: 'Curtis Allen Woodard, also known as @frisbeerunner, brings a unique blend of passion and musicianship to The Higher Standards. With years of experience performing and writing music, Curtis captivates audiences with his dynamic vocals and guitar skills. Off stage, he is known for his laid-back vibe and love for connecting with fans.',
     socialLinks: {
-      instagram: 'https://instagram.com/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      spotify: 'https://open.spotify.com/artist/johndoe'
+      facebook: 'https://www.facebook.com/frisbeerunner'
     }
   },
   'jane-smith': {
@@ -27,16 +25,24 @@ const bandMembers = {
       spotify: 'https://open.spotify.com/artist/janesmith'
     }
   },
-  'mike-johnson': {
-    name: 'Mike Johnson',
-    role: 'Drums',
-    image: '/images/band/mike-johnson.jpg',
-    bio: 'Our powerhouse drummer with a passion for rhythm.',
-    fullBio: 'Mike\'s dynamic drumming style has been the backbone of The Higher Standards for the past decade. His precision and creativity behind the kit are unmatched.',
+  'patrick-dunwody': {
+    name: 'Patrick Dunwody',
+    role: 'Bass Guitar',
+    image: '/images/band/Pat(1).jpg',
+    bio: 'Bass player extraordinaire, bringing the groove to every performance.',
+    fullBio: 'Patrick Dunwody brings a unique style to the band with his innovative bass lines and infectious energy. He is known for his musical versatility and stage presence.',
     socialLinks: {
-      instagram: 'https://instagram.com/mikejohnson',
-      twitter: 'https://twitter.com/mikejohnson',
-      spotify: 'https://open.spotify.com/artist/mikejohnson'
+      facebook: 'https://www.facebook.com/patrick.dunwody'
+    }
+  },
+  'bobby-melander': {
+    name: 'Bobby Melander',
+    role: 'Drums',
+    image: '/images/band/Bobby.jpg',
+    bio: 'Our powerhouse drummer with a passion for rhythm and groove.',
+    fullBio: 'Bobby Melander brings energy and precision to the drums, driving the band\'s rhythm section with passion and creativity. His dynamic style and love for music make every performance unforgettable.',
+    socialLinks: {
+      facebook: 'https://www.facebook.com/bobby.melander'
     }
   },
   'sarah-wilson': {
@@ -53,6 +59,16 @@ const bandMembers = {
   }
 }
 
+export function generateStaticParams() {
+  return [
+    { id: 'curtis-allen-woodard' },
+    { id: 'jane-smith' },
+    { id: 'patrick-dunwody' },
+    { id: 'bobby-melander' },
+    { id: 'sarah-wilson' },
+  ];
+}
+
 export default function BandMemberPage({ params }: { params: { id: string } }) {
   const member = bandMembers[params.id as keyof typeof bandMembers]
 
@@ -67,11 +83,12 @@ export default function BandMemberPage({ params }: { params: { id: string } }) {
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:flex">
             <div className="md:w-1/3">
-              <div className="h-64 md:h-full bg-gray-200 relative">
-                {/* Add actual image later */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  {member.name}
-                </div>
+              <div className="h-64 md:h-full bg-gray-200 relative flex items-center justify-center overflow-hidden">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full w-auto object-cover object-top rounded-lg shadow-lg"
+                />
               </div>
             </div>
             <div className="p-8 md:w-2/3">
