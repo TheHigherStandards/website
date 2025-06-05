@@ -40,7 +40,7 @@ export default function BandPage() {
             We are a St. Petersburg, FL based band playing original tunes and spreading good vibes. Formed in 2022, THS has been playing gigs up and down the beach and writing new songs. Our first single &quot;Feels Like Paradise&quot; was released Dec 20th, 2024. We have a bunch more music on the way and appreciate you checking us out. Give us a follow and we&apos;ll keep putting out fresh tunes. Much Love!
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {bandMembers.map((member) => (
             <Link 
               href={`/band/${member.id}`} 
@@ -49,7 +49,7 @@ export default function BandPage() {
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 group-hover:scale-105">
                 <div className="flex justify-center items-center mt-6 mb-2">
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-200 flex items-start">
+                  <div className="w-48 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-gray-200 flex items-start">
                     <img
                       src={member.image}
                       alt={member.name}
