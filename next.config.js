@@ -14,11 +14,6 @@ const nextConfig = {
   // Enable SWC minification
   swcMinify: true,
   
-  // Optimize bundle size
-  experimental: {
-    optimizeCss: true,
-  },
-  
   // Headers for better caching and security
   async headers() {
     return [
