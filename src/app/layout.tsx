@@ -5,6 +5,7 @@ import './globals.css'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import EasterEgg from '../components/EasterEgg'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,6 +34,19 @@ export default function RootLayout({
         <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTcviYw.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-45L7CCMKCP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-45L7CCMKCP');
+          `}
+        </Script>
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-grow">
