@@ -52,11 +52,11 @@ export default function Home() {
                 aspectRatio: '144/120'
               }}
             />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 hero-text" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+            <h1 className="hero-text hero-title">
               The Higher Standards
             </h1>
             {/* Use system font for fastest LCP */}
-            <p className="text-xl md:text-2xl text-white mb-8 hero-text" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+            <p className="hero-text hero-subtitle">
               Elevating your events with exceptional live music
             </p>
             <div className="flex justify-center w-full">

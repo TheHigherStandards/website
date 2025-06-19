@@ -1,18 +1,10 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-})
 
 // Dynamically import EasterEgg to reduce initial bundle size
 const EasterEgg = dynamic(() => import('../components/EasterEgg'), {
@@ -75,8 +67,39 @@ export default function RootLayout({
           type="font/ttf" 
           crossOrigin="anonymous" 
         />
+        
+        {/* Preload critical CSS */}
+        <link rel="preload" href="/globals.css" as="style" />
+        
+        {/* Critical CSS for immediate text rendering */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .hero-text {
+              font-display: swap !important;
+              font-synthesis: none !important;
+              text-rendering: optimizeLegibility !important;
+              -webkit-font-smoothing: antialiased !important;
+              -moz-osx-font-smoothing: grayscale !important;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            }
+            .hero-title {
+              font-size: clamp(2rem, 5vw, 3.75rem) !important;
+              line-height: 1.1 !important;
+              font-weight: 700 !important;
+              margin: 0 0 1.5rem 0 !important;
+              color: white !important;
+            }
+            .hero-subtitle {
+              font-size: clamp(1.125rem, 2.5vw, 1.5rem) !important;
+              line-height: 1.4 !important;
+              font-weight: 400 !important;
+              margin: 0 0 2rem 0 !important;
+              color: white !important;
+            }
+          `
+        }} />
       </head>
-      <body className={`${inter.className} min-h-screen bg-gray-50`}>
+      <body className="min-h-screen bg-gray-50">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-45L7CCMKCP"
           strategy="afterInteractive"
