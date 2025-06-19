@@ -14,6 +14,33 @@ const nextConfig = {
   // Enable SWC minification
   swcMinify: true,
   
+  // Optimize JavaScript bundle
+  experimental: {
+    optimizePackageImports: ['react', 'react-dom'],
+  },
+  
+  // Reduce bundle size
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Enable tree shaking
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+      
+      // Split chunks for better caching
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      };
+    }
+    return config;
+  },
+  
   // Headers for better caching and security
   async headers() {
     return [

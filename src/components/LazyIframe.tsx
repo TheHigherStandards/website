@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface LazyIframeProps {
   src: string;
@@ -31,46 +31,47 @@ export default function LazyIframe({
 }: LazyIframeProps) {
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
+    const [entry] = entries;
+    if (entry.isIntersecting) {
+      setIsVisible(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (loading === 'eager') {
       setIsVisible(true);
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: '50px',
-        threshold: 0.1
-      }
-    );
-
     const element = document.getElementById(`lazy-iframe-${title.replace(/\s+/g, '-').toLowerCase()}`);
-    if (element) {
-      observer.observe(element);
-    }
+    if (!element) return;
 
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: '50px',
+      threshold: 0.1
+    });
+
+    observer.observe(element);
     return () => observer.disconnect();
-  }, [title, loading]);
+  }, [title, loading, handleIntersection]);
+
+  const containerId = `lazy-iframe-${title.replace(/\s+/g, '-').toLowerCase()}`;
+  const containerStyle = {
+    width,
+    height,
+    backgroundColor: '#f5f5f5',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...style
+  };
 
   return (
     <div
-      id={`lazy-iframe-${title.replace(/\s+/g, '-').toLowerCase()}`}
+      id={containerId}
       className={`lazy-iframe-container ${className}`}
-      style={{
-        width,
-        height,
-        backgroundColor: '#f5f5f5',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...style
-      }}
+      style={containerStyle}
     >
       {!isVisible && (
         <div className="loading-placeholder">

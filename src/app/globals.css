@@ -33,8 +33,10 @@
     transform: translateY(-500px) scale(1.3) rotate(0deg);
   }
 }
+
 .animate-music-note {
   animation: music-note-float 5s linear infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes float {
@@ -51,4 +53,29 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Prevent layout shifts for hero text */
+.hero-text {
+  font-display: swap;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure consistent text rendering */
+h1, h2, h3, p {
+  font-display: swap;
+}
+
+/* Optimize loading placeholders */
+.loading-placeholder {
+  will-change: opacity;
+}
+
+/* Reduce paint operations for better performance */
+.lazy-iframe-container {
+  contain: layout style paint;
 }

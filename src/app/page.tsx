@@ -1,8 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
 import Script from 'next/script'
-import LazyIframe from '../components/LazyIframe'
+import dynamic from 'next/dynamic'
 // import Navigation from '@/components/Navigation'
+
+// Dynamically import LazyIframe to reduce initial bundle size
+const LazyIframe = dynamic(() => import('../components/LazyIframe'), {
+  ssr: false,
+  loading: () => <div className="animate-pulse bg-gray-300 rounded h-full w-full"></div>,
+})
 
 export default function Home() {
   return (
@@ -39,14 +45,18 @@ export default function Home() {
               width={144}
               height={120}
               priority
-              className="mx-auto mb-6 w-32 md:w-36 h-auto border-4 border-white rounded-2xl shadow-lg mt-4 md:mt-12"
-              style={{ maxHeight: '120px' }}
+              sizes="(max-width: 768px) 128px, 144px"
+              className="mx-auto mb-6 w-32 md:w-36 border-4 border-white rounded-2xl shadow-lg mt-4 md:mt-12"
+              style={{ 
+                height: 'auto',
+                aspectRatio: '144/120'
+              }}
             />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 hero-text" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
               The Higher Standards
             </h1>
             {/* Use system font for fastest LCP */}
-            <p className="text-xl md:text-2xl text-white mb-8" style={{ fontFamily: 'system-ui, sans-serif' }}>
+            <p className="text-xl md:text-2xl text-white mb-8 hero-text" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
               Elevating your events with exceptional live music
             </p>
             <div className="flex justify-center w-full">

@@ -4,13 +4,20 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
-import EasterEgg from '../components/EasterEgg'
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+})
+
+// Dynamically import EasterEgg to reduce initial bundle size
+const EasterEgg = dynamic(() => import('../components/EasterEgg'), {
+  ssr: false,
+  loading: () => null,
 })
 
 export const metadata: Metadata = {
@@ -59,6 +66,15 @@ export default function RootLayout({
         
         {/* Preload critical resources */}
         <link rel="preload" href="/images/logo.jpg" as="image" />
+        
+        {/* Preload Inter font for fastest LCP */}
+        <link 
+          rel="preload" 
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTcviYw.ttf" 
+          as="font" 
+          type="font/ttf" 
+          crossOrigin="anonymous" 
+        />
       </head>
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <Script
