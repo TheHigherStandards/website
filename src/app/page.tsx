@@ -1,10 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
+import Script from 'next/script'
 // import Navigation from '@/components/Navigation'
 
 export default function Home() {
   return (
     <main>
+      {/* HubSpot Script */}
+      <Script
+        src="https://js-na2.hsforms.net/forms/embed/243093346.js"
+        strategy="afterInteractive"
+      />
+      
       {/* Hero Section with Background Image */}
       <div className="relative h-[110vh] md:h-[80vh] bg-black overflow-hidden pt-8 md:pt-0">
         {/* Animated Music Notes */}
@@ -93,6 +100,25 @@ export default function Home() {
                 </a>
               </div>
             </div>
+            
+            {/* Community Building Section with HubSpot Form - Small */}
+            <div className="mt-12 max-w-md mx-auto">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Stay Connected</h3>
+                <p className="text-sm text-gray-600">
+                  Get updates on shows and new music
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-4 border border-gray-200">
+                <div 
+                  className="hs-form-frame" 
+                  data-region="na2" 
+                  data-form-id="06a63991-b835-4f11-898c-7ca984f6b30c" 
+                  data-portal-id="243093346"
+                ></div>
+              </div>
+            </div>
+            
             {/* Facebook Widget Below Upcoming Shows */}
             <div className="flex flex-col items-center mt-8">
               <h2 className="text-2xl font-semibold text-center mb-4 text-gray-900">Follow the Band</h2>
