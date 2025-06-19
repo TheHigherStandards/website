@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Script from 'next/script'
+import LazyIframe from '../components/LazyIframe'
 // import Navigation from '@/components/Navigation'
 
 export default function Home() {
@@ -49,18 +50,17 @@ export default function Home() {
               Elevating your events with exceptional live music
             </p>
             <div className="flex justify-center w-full">
-              <iframe
-                style={{ borderRadius: '12px' }}
+              <LazyIframe
                 src="https://open.spotify.com/embed/artist/2n31PctOZt8HEp8Qq2vvUY?utm_source=generator"
-                width="100%"
-                height="352"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
                 title="Spotify Player"
+                width="100%"
+                height={352}
                 className="max-w-xl w-full"
-              ></iframe>
+                style={{ borderRadius: '12px' }}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                allowFullScreen={true}
+                loading="eager"
+              />
             </div>
           </div>
         </div>
@@ -73,16 +73,15 @@ export default function Home() {
           <div>
             <h2 className="text-2xl font-semibold text-center mb-8 text-gray-900">Upcoming Shows</h2>
             <div className="bg-white rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full">
-              <iframe
+              <LazyIframe
                 src="https://calendar.google.com/calendar/embed?height=700&wkst=1&ctz=America%2FNew_York&showPrint=0&showNav=0&showTz=0&mode=AGENDA&showCalendars=0&showTabs=0&showDate=0&src=ZHV1MXM4ZWE5Y25rb281cm9jMmVlcW80b2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23009688"
-                style={{ border: 'solid 1px #777' }}
-                width="100%"
-                height="700"
-                frameBorder="0"
-                scrolling="no"
                 title="Upcoming Shows Calendar"
+                width="100%"
+                height={700}
                 className="text-gray-900"
-              ></iframe>
+                style={{ border: 'solid 1px #777' }}
+                loading="lazy"
+              />
               <div className="text-center mt-4 flex flex-col sm:flex-row justify-center gap-4">
                 <a
                   href="/shows"
@@ -122,17 +121,15 @@ export default function Home() {
             {/* Facebook Widget Below Upcoming Shows */}
             <div className="flex flex-col items-center mt-8">
               <h2 className="text-2xl font-semibold text-center mb-4 text-gray-900">Follow the Band</h2>
-              <iframe
+              <LazyIframe
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthehigherstandards&tabs=timeline&width=340&height=650&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                width="340"
-                height="650"
-                style={{ border: 'none', overflow: 'hidden' }}
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 title="The Higher Standards Facebook Page"
-              ></iframe>
+                width={340}
+                height={650}
+                style={{ border: 'none', overflow: 'hidden' }}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                loading="lazy"
+              />
             </div>
           </div>
           {/* Featured Merchandise - moved down */}
@@ -142,7 +139,14 @@ export default function Home() {
               {/* T-Shirt */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                  <img src="/images/merch/Tshirt.png" alt="The Higher Standards T-Shirt" className="h-full object-contain" />
+                  <Image
+                    src="/images/merch/Tshirt.png"
+                    alt="The Higher Standards T-Shirt"
+                    width={200}
+                    height={192}
+                    className="h-full w-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-4">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards T-Shirt</h4>
@@ -159,7 +163,14 @@ export default function Home() {
               {/* Tank Top */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                  <img src="/images/merch/Tank.png" alt="The Higher Standards Tank Top" className="h-full object-contain" />
+                  <Image
+                    src="/images/merch/Tank.png"
+                    alt="The Higher Standards Tank Top"
+                    width={200}
+                    height={192}
+                    className="h-full w-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-4">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards Tank Top</h4>
@@ -176,7 +187,14 @@ export default function Home() {
               {/* Hat */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <div className="w-full h-48 bg-gray-200 flex items-center justify-center overflow-hidden">
-                  <img src="/images/merch/Hat.png" alt="The Higher Standards Hat" className="h-full object-contain" />
+                  <Image
+                    src="/images/merch/Hat.png"
+                    alt="The Higher Standards Hat"
+                    width={200}
+                    height={192}
+                    className="h-full w-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-4">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900">The Higher Standards Hat</h4>

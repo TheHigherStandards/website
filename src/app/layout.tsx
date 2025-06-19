@@ -7,7 +7,11 @@ import Footer from '../components/Footer'
 import EasterEgg from '../components/EasterEgg'
 import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: 'The Higher Standards',
@@ -22,6 +26,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://js-na2.hsforms.net" />
+        <link rel="preconnect" href="https://open.spotify.com" />
+        <link rel="preconnect" href="https://calendar.google.com" />
+        <link rel="preconnect" href="https://www.facebook.com" />
+        
+        {/* DNS prefetch for additional domains */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://js-na2.hsforms.net" />
+        <link rel="dns-prefetch" href="https://open.spotify.com" />
+        <link rel="dns-prefetch" href="https://calendar.google.com" />
+        <link rel="dns-prefetch" href="https://www.facebook.com" />
+        
+        {/* Font Awesome */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -29,9 +54,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        
         <link rel="icon" href="/images/favicon1.ico" type="image/x-icon" />
-        {/* Preload Inter font for faster LCP */}
-        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTcviYw.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/images/logo.jpg" as="image" />
       </head>
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <Script
